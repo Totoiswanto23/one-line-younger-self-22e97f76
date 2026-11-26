@@ -12,6 +12,10 @@ const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 // Second person, one breath, no setup: the phone, the kid asleep on
 // the chest, the bank balance that never hugged anyone back. The
 // turn lands in the last words — he is only this small once.
+// Judge brief, in short: addressed to the younger self (not a motto),
+// specific to a life actually lived, honest enough to sting a little.
+const MAX_CHARS = 200;
+
 const MESSAGE =
   "Put the phone down — the kid asleep on your chest doesn't care about your bank balance, and he's only this small once.";
 
@@ -23,8 +27,8 @@ if (MESSAGE !== MESSAGE.trim()) {
   console.error('entry must not start or end with whitespace');
   process.exit(1);
 }
-if (MESSAGE.length < 1 || MESSAGE.length > 200) {
-  console.error(`entry must be 1-200 characters, got ${MESSAGE.length}`);
+if (MESSAGE.length < 1 || MESSAGE.length > MAX_CHARS) {
+  console.error(`entry must be 1-${MAX_CHARS} characters, got ${MESSAGE.length}`);
   process.exit(1);
 }
 if (MESSAGE.trim().length === 0) {
